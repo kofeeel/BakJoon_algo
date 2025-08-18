@@ -15,9 +15,9 @@ int main()
     vector<int> numList(N);
     vector<int> sumList(N + 1, 0);
 
-    for (int i = 0; i < N; i++)
+    for (int& num : numList)
     {
-        cin >> numList[i]; 
+        cin >> num; 
     }
 
     for (int i = 0; i < N; i++)
