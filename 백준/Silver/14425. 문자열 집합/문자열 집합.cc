@@ -1,36 +1,32 @@
 #include <iostream>
-#include <set>
-#include <string>
+#include <map>
 
 using namespace std;
 
+
 int main()
 {
-	int N, M;
+    ios::sync_with_stdio(false);
+	cin.tie(NULL);
+    cout.tie(NULL);
+    
+	map<string, bool> answers;
+	string s;
+
+	int N{}, M{}, count{};
 	cin >> N >> M;
-	set<string> answerSet;
-	set<string>::iterator it;
 
-	//map<int, string>::iterator testmapIter;
-	int count {0};
-
-	//집합 S
 	for (int i = 0; i < N; i++)
 	{
-		string str;
-		cin >> str;
-		answerSet.insert(str);
+		cin >> s;
+		answers.insert({ s, true });
+	}
+
+	for (int j = 0; j < M; j++)
+	{
+		cin >> s;
+		if (answers[s] == true) { count++; }
 	}
 	
-	for (int i = 0; i < M; i++)
-	{
-		string str;
-		cin >> str;
-		it = answerSet.find(str);
-		if (it != answerSet.end())
-		{
-			count++;
-		}
-	}
-	std::cout << count;
+	cout << count;
 }
